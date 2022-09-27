@@ -14,12 +14,16 @@ export default function SignUp() {
       <br></br>
       <input type="text" id="senha" name="senha" placeholder='senha'/>
       </div>
-      <div className='button'>
-
-      </div>
-      <Link to='/' className='signup' >
+      
+      <Link to='/' className='button' >
+                Logar
+        </Link>
+    
+      <div className='link'>
+      <Link to='/register' className='signup' >
                 Sign Up
         </Link>
+      </div>
     </div>
   </div>
   )
