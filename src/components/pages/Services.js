@@ -16,6 +16,8 @@ export default function Services() {
              <br></br>
             você paga tudo e todos e ainda pode parcelar no crédito.
             <br></br>
+            <br></br>
+            <br></br>
             <img src="/images/card_icon.png" alt="card"/>Além disso, você ainda pode ganhar cashback, ou seja, dinheiro de volta. 
         </p>
         
