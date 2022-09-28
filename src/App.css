@@ -34,14 +34,33 @@ background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
  
   background: rgb(33, 33, 33);
   background: linear-gradient(95deg, rgb(179, 179, 179) 35%, rgb(116, 116, 116) 67%);
+  display: flex;
+
 
 }
 .imgHand{
   width: 35vW;
 }
+.textDown{
+  font-size: 29px;
+  
+  width: 60%;
+}
+.textStore{
+  display: block;
+  margin-left: 10%;
+}
+.store img{
+  width: 25% ;
+}
+.store{
+  display: block;
+  margin-top: 20px;
+
+}
 
 .imgMobile{
-  margin-right:50% ;
+  margin-right:10% ;
 }
 .services {
   background: rgb(33, 33, 33);
@@ -85,11 +104,30 @@ border-radius: 5%;
 text-align: center;
 display: block;
 }
+.containerRes{
+  background: rgb(29, 29, 29);
+
+  height: 90%;
+  width: 30%;
+  border-radius: 5%;
+  text-align: center;
+  display: block;
+}
+.containerRes h4{
+  margin-top: 60px;
+  font-size: 40px;
+  color: azure;
+
+}
 .container h4{
   margin-top: 60px;
   font-size: 40px;
   color: azure;
 
+}
+.containerRes a{
+  font-size: 20px;
+  color: azure;
 }
 .container a{
   font-size: 20px;
@@ -99,6 +137,7 @@ display: block;
 .signup{
   color:aqua;
   margin-top: 40%;
+  
 }
 
 .info{
@@ -121,6 +160,7 @@ display: block;
   height: 50px;
   width: 40%;
   padding: 15px 32px;
+  margin-top: 10px;
 }
 .img_about{
   margin-left: 32px;
@@ -147,3 +187,6 @@ display: block;
   
 }
 
+.link{
+  display: block;
+}
