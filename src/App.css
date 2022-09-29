@@ -190,3 +190,36 @@ display: block;
 .link{
   display: block;
 }
+
+@media screen and (max-width: 960px) {
+  .about{
+    display: block;
+    padding: 20px;
+    height: 115vh;
+  }
+  .information{
+    font-size: 20px;
+  }
+  .imgAbout{
+    width: 80vw;
+   justify-items: center;
+  }
+  .text{
+    font-size: 1.3rem;
+    margin-top: 30%;
+  }
+  .services{
+    display: block;
+    padding: 10px;
+    height: 110vh;
+  }
+
+  .card1{
+    width: 80vw;
+    
+  }
+  .card2{
+    width: 80vw;
+    
+  }
+}
