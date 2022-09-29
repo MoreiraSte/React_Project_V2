@@ -2,38 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import Hamburger from './hamburgerMenu/Hamburger'
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener('resize', showButton);
-
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          <Link to='/' className='navbar-logo' >
             CasiBank
           </Link>
           
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/' className='nav-links'>
                 Home
               </Link>
             </li>
@@ -41,7 +26,7 @@ function Navbar() {
               <Link
                 to='/about'
                 className='nav-links'
-                onClick={closeMobileMenu}
+              
               >
                 About
               </Link>
@@ -50,7 +35,7 @@ function Navbar() {
               <Link
                 to='/services'
                 className='nav-links'
-                onClick={closeMobileMenu}
+             
               >
                 Services
               </Link>
@@ -59,7 +44,7 @@ function Navbar() {
               <Link
                 to='/download'
                 className='nav-links'
-                onClick={closeMobileMenu}
+              
               >
                 Download app
               </Link>
@@ -68,7 +53,7 @@ function Navbar() {
               <Link
                 to='/sign-up'
                 className='nav-links-mobile'
-                onClick={closeMobileMenu}
+              
               >
                 Sign In
               </Link>
@@ -76,6 +61,7 @@ function Navbar() {
           </ul>
           {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>}
         </div>
+      <Hamburger/>
       </nav>
     </>
   );
