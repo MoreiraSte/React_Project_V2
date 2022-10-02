@@ -8,7 +8,8 @@
 .home,
 .about,
 .download,
-.sign-up {
+.sign-up,
+.sign-upRes {
   display: flex;
   height: 92vh;
   align-items: center;
@@ -26,7 +27,7 @@ background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
 
 }
 .information{
-  font-size: 26px;
+  font-size: 24px;
   color: azure;
  
 }
@@ -65,9 +66,11 @@ background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
 .services {
   background: rgb(33, 33, 33);
   background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
-  display: inline-flex;
+  display: flex;
   height: 92vh;
   align-items: center;
+  flex-direction: row
+
 }
 .text{
  
@@ -78,8 +81,8 @@ background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
 .cards img{
   display: block;
   margin-left: 30%;
-
 }
+
 .card1{
   width: 40%;
 }
@@ -91,6 +94,13 @@ background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
 .sign-up {
   background: url('/images/signup.jpg') center center/cover no-repeat;
   height: 100vh;
+  width: 100%;
+}
+
+
+.sign-upRes {
+  background: url('/images/signup.jpg') center center/cover no-repeat;
+  height: 160vh;
   width: 100%;
 }
 
@@ -107,8 +117,8 @@ display: block;
 .containerRes{
   background: rgb(29, 29, 29);
 
-  height: 90%;
-  width: 30%;
+  height: 140vh;
+  width: 50vw;
   border-radius: 5%;
   text-align: center;
   display: block;
@@ -167,7 +177,7 @@ display: block;
 
 }
 .imgAbout{
-  width: 120%;
+  width: 100%;
 }
 .selection{
   display: flex;
@@ -195,13 +205,14 @@ display: block;
   .about{
     display: block;
     padding: 20px;
-    height: 115vh;
+    height: 120vh;
   }
   .information{
     font-size: 20px;
   }
   .imgAbout{
-    width: 80vw;
+    width: 70vw;
+   
    justify-items: center;
   }
   .text{
@@ -222,4 +233,41 @@ display: block;
     width: 80vw;
     
   }
+ .cards {
+   margin-right: 75% !important;
+ }
+ .download{
+  display: block;
+  height: 170vh;
+ }
+ .store img{
+  width: 40vw;
+  align-items: center;
+ }
+ .imgMobile img{
+  width: 100vw;
+ }
+ .container{
+
+
+height: 60%;
+width: 90%;
+border-radius: 5%;
+text-align: center;
+display: block;
+}
+.info{
+  margin-top: 20px;
+}
+.info input{
+  width: 80%;
+}
+.containerRes{
+  width: 90%;
+  height: 125vh;
+}
+ .sign-upRes{
+    height: 150vh;
+ }
+
 }

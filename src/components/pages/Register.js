@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Register() {
   return(
-    <div className='sign-up'>
+    <div className='sign-upRes'>
     <div className='containerRes'>
       <h4>Sign Up</h4>
       <div className='info'>
