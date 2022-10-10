@@ -103,8 +103,11 @@
     left: 0;
     transform: translate(25%, 50%);
   }
-
-
-
-
+.btn{
+  display: none;
 }
+}
+
+
+
+

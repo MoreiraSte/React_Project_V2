@@ -1,3 +1,14 @@
+#react-burger-menu-btn{
+  display: none;
+  position: relative;
+}
+.bm-burger-bars{
+  position: relative !important;
+}
+@media screen and (max-width: 960px) {
+  #react-burger-menu-btn{
+    display: block;
+  }
 .bm-burger-button {
     position: absolute;
     width: 36px;
@@ -10,6 +21,7 @@
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
     background: #ffffff;
+    position: absolute !important;
   }
   
   /* Color/shape of burger icon bars on hover*/
@@ -75,3 +87,4 @@
     margin-top: 20px;
     font-size: 1.5rem;
   }
+}
