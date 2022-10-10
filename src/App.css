@@ -179,12 +179,39 @@ display: block;
 .imgAbout{
   width: 100%;
 }
-.selection{
+
+.genero #age{
+  width: 30%;
+
+}
+.selectionEnd{
   display: flex;
   justify-items: center;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 25px;
  
+}
+.selectionEnd p{
+  font-size: 22px;
+  color: azure;
+  text-align: center;
+}
+#endText{
+  font-size: 22px;
+  color: azure;
+  text-align: center;
+  margin-top: 20px;
+}
+.button{
+  margin-top: 70px;
+}
+
+.genero{
+ justify-content: space-around;
+ margin-right: 10%;
+  margin-top: 20px;
+  height: 20px;
+  
 }
 .genero p{
   font-size: 22px;

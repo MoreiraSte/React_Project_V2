@@ -11,7 +11,16 @@ export default function Register() {
       <div className='info'>
       <input type="text" id="name" name="Nome" placeholder='Nome'/>
       <br></br>
-      <input type="number" id="age" name="Idade" placeholder='Idade'/>
+      
+      
+        <div className='genero'>
+        <input type="number" id="age" name="Idade" placeholder='Idade'/>
+            <select id='selectGen'>
+            <option>Feminino</option>
+            <option>Masculino</option>
+            </select>
+        </div>
+      
       <br></br>
       <input type="date" id="nasc" name="Nasc"/>
       <br></br>
@@ -25,7 +34,7 @@ export default function Register() {
       <br></br>
       <input type="password2" id="senha2" name="Senha2" placeholder='Repita a senha'/>
       <br></br>
-      <div className='selection'>
+      {/* <div className='selection'>
         <div className='genero'>
             <p>Genero:</p>
             <select>
@@ -39,6 +48,25 @@ export default function Register() {
             <option>Free</option>
             <option>Premium</option>
             </select>
+        </div>
+      </div> */}
+      <p id='endText'>Endereço:</p>
+      <div className='selectionEnd'>
+        
+        <div className='endereco'>
+          
+          <input type="text" id="cidade" name="cidade" placeholder='Cidade'/>
+          <input type="text" id="bairro" name="bairro" placeholder='Bairro'/>
+        </div>
+        <div className='endereco2'>
+          <input type="text" id="uf" name="uf" placeholder='UF'/>
+          <input type="number" id="num" name="num" placeholder='Número'/>
+
+        </div>
+        <div className='endereco3'>
+          <input type="number" id="rua" name="rua" placeholder='Rua'/>
+          <input type="text" id="cep" name="cep" placeholder='CEP'/>
+
         </div>
       </div>
      
