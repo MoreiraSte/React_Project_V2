@@ -1,55 +1,40 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 
 
 export default function Register() {
+
+  const [name,setName] = useState("")
+  const [password,setPassword] = useState("")
+  const [email,setEmail]= useState("")
+  const [genero,setGenero]= useState("")
+  const [celular,setCelular]= useState("")
+  const [cpf,setCpf]= useState("")
+  const [data,setData]= useState("")
+  const [idade,setIdade]= useState("")
+
+
   return(
     <div className='sign-upRes'>
     <div className='containerRes'>
       <h4>Sign Up</h4>
       <div className='info'>
-      <input type="text" id="name" name="Nome" placeholder='Nome'/>
+      <input type="text" value={name} onChange={(e)=>setName(e.target.value)} id="name" name="Nome" placeholder='Nome'/>
+      <br></br>
+      <input type="number" value={idade} onChange={(e)=>setIdade(e.target.value)} id="age" name="Idade" placeholder='Idade'/> 
+      <br></br>
+      <input type="date" value={data} onChange={(e)=>setData(e.target.value)} id="nasc" name="Nasc"/>
+      <br></br>
+      <input type="text" value={celular} onChange={(e)=>setCelular(e.target.value)} id="phone" name="Celular" placeholder='Celular'/>
+      <br></br>
+      <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="email" name="Email" placeholder='E-mail'/>
+      <br></br>
+      <input type="text" value={cpf} onChange={(e)=>setCpf(e.target.value)} id="cpf" name="Cpf" placeholder='CPF'/>
+      <br></br>
+      <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="senha" name="Senha" placeholder='Senha'/>
       <br></br>
       
-      
-        <div className='genero'>
-        <input type="number" id="age" name="Idade" placeholder='Idade'/>
-            <select id='selectGen'>
-            <option>Feminino</option>
-            <option>Masculino</option>
-            </select>
-        </div>
-      
-      <br></br>
-      <input type="date" id="nasc" name="Nasc"/>
-      <br></br>
-      <input type="text" id="phone" name="Celular" placeholder='Celular'/>
-      <br></br>
-      <input type="email" id="email" name="Email" placeholder='E-mail'/>
-      <br></br>
-      <input type="text" id="cpf" name="Cpf" placeholder='CPF'/>
-      <br></br>
-      <input type="password" id="senha" name="Senha" placeholder='Senha'/>
-      <br></br>
-      <input type="password2" id="senha2" name="Senha2" placeholder='Repita a senha'/>
-      <br></br>
-      {/* <div className='selection'>
-        <div className='genero'>
-            <p>Genero:</p>
-            <select>
-            <option>Feminino</option>
-            <option>Masculino</option>
-            </select>
-        </div>
-        <div className='tipoCliente'>
-            <p>Plano:</p>
-            <select>
-            <option>Free</option>
-            <option>Premium</option>
-            </select>
-        </div>
-      </div> */}
       <p id='endText'>Endereço:</p>
       <div className='selectionEnd'>
         
@@ -68,6 +53,18 @@ export default function Register() {
           <input type="text" id="cep" name="cep" placeholder='CEP'/>
 
         </div>
+
+        <div className='genero'>
+            <select id='selectGen' value={genero} onChange={(e)=>setGenero(e.target.value)}>
+            <option>Feminino</option>
+            <option>Masculino</option>
+            </select>
+        </div>
+      </div>
+
+      <div className="file">
+      <label for="myfile">Selecione uma imagem para usuário:</label>
+      <br></br><input type="file" id="myfile" name="myfile"/>
       </div>
      
       </div>
@@ -83,9 +80,7 @@ export default function Register() {
         </Link>
         </div>
         <div>
-      <Link to='/' className='signup' >
-                Forget the password? Click here 
-        </Link>
+      
         </div>
       </div>
     </div>

@@ -26,6 +26,16 @@ background: linear-gradient(95deg, rgb(48, 48, 48) 35%, rgb(29, 29, 29) 67%);
 
 
 }
+.file label{
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.file input{
+  margin-left: 10%;
+  color: aliceblue;
+}
 .information{
   font-size: 24px;
   color: azure;
@@ -117,7 +127,7 @@ display: block;
 .containerRes{
   background: rgb(29, 29, 29);
 
-  height: 110vh;
+  height: 120vh;
   width: 50vw;
   border-radius: 5%;
   text-align: center;
@@ -291,10 +301,12 @@ display: block;
 }
 .containerRes{
   width: 90%;
-  height: 125vh;
+  height: 142vh;
 }
  .sign-upRes{
     height: 150vh;
  }
+
+
 
 }
