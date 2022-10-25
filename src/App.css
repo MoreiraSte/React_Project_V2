@@ -127,7 +127,7 @@ display: block;
 .containerRes{
   background: rgb(29, 29, 29);
 
-  height: 120vh;
+  height: 110vh;
   width: 50vw;
   border-radius: 5%;
   text-align: center;
@@ -207,7 +207,7 @@ display: block;
   text-align: center;
 }
 #endText{
-  font-size: 22px;
+  font-size: 20px;
   color: azure;
   text-align: center;
   margin-top: 20px;

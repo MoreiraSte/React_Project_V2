@@ -1,18 +1,39 @@
 import React,{useState} from 'react';
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 export default function Register() {
 
-  const [name,setName] = useState("")
-  const [password,setPassword] = useState("")
-  const [email,setEmail]= useState("")
-  const [genero,setGenero]= useState("")
-  const [celular,setCelular]= useState("")
-  const [cpf,setCpf]= useState("")
-  const [data,setData]= useState("")
-  const [idade,setIdade]= useState("")
+  const [name,setName] = useState("");
+  const [password,setPassword] = useState("");
+  const [email,setEmail]= useState("");
+  const [genero,setGenero]= useState();
+  const [celular,setCelular]= useState("");
+  const [cpf,setCpf]= useState("");
+  const [data,setData]= useState();
+  const [idade,setIdade]= useState();
+  const [endereco,setEnd]= useState();
+
+  const history = useHistory();
+
+  const sigUp_register = () => {
+    
+    let item={name,password,email,genero,celular,cpf,data,idade,endereco}
+    console.log.warn(item)
+
+    let result= fetch("localhost:8000/client",{
+      method:'POST',
+      headers:{
+        "Cotent-Type":'application/json',
+        "Accept":'application/json'
+      },
+      body:JSON.stringify(item)
+    });
+    result = result.json()
+    localStorage.setItem("user-info",JSON.stringify(result))
+    history.push("/add")
+  }
 
 
   return(
@@ -35,29 +56,47 @@ export default function Register() {
       <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="senha" name="Senha" placeholder='Senha'/>
       <br></br>
       
-      <p id='endText'>Endereço:</p>
+      
       <div className='selectionEnd'>
         
         <div className='endereco'>
-          
-          <input type="text" id="cidade" name="cidade" placeholder='Cidade'/>
-          <input type="text" id="bairro" name="bairro" placeholder='Bairro'/>
-        </div>
-        <div className='endereco2'>
-          <input type="text" id="uf" name="uf" placeholder='UF'/>
-          <input type="number" id="num" name="num" placeholder='Número'/>
-
-        </div>
-        <div className='endereco3'>
-          <input type="number" id="rua" name="rua" placeholder='Rua'/>
-          <input type="text" id="cep" name="cep" placeholder='CEP'/>
-
-        </div>
-
-        <div className='genero'>
+        <p id='endText'>Gênero:</p>
             <select id='selectGen' value={genero} onChange={(e)=>setGenero(e.target.value)}>
             <option>Feminino</option>
             <option>Masculino</option>
+            </select>
+        </div>
+
+        <div className='endereco'>
+        <p id='endText'>Endereço:</p>
+            <select id='selectGen' value={endereco} onChange={(e)=>setEnd(e.target.value)}>
+            <option>SP</option>
+            <option>AC</option>
+            <option>AL</option>
+            <option>AP</option>
+            <option>AM</option>
+            <option>BA</option>
+            <option>CE</option>
+            <option>ES</option>
+            <option>GO</option>
+            <option>MA</option>
+            <option>MT</option>
+            <option>MS</option>
+            <option>MG</option>
+            <option>PA</option>
+            <option>PB</option>
+            <option>PR</option>
+            <option>PE</option>
+            <option>PI</option>
+            <option>RJ</option>
+            <option>RN</option>
+            <option>RS</option>
+            <option>RO</option>
+            <option>RR</option>
+            <option>SC</option>
+            <option>SE</option>
+            <option>TO</option>
+            <option>DF</option>
             </select>
         </div>
       </div>
@@ -69,7 +108,7 @@ export default function Register() {
      
       </div>
       
-      <Link to='/' className='button' >
+      <Link to='/' className='button' onClick={sigUp_register} >
                 Cadastrar
         </Link>
     
