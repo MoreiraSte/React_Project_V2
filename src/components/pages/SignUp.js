@@ -6,30 +6,30 @@ import { Link, useHistory } from 'react-router-dom';
 export default function SignUp() {
 
   
-  const [email,setEmail]= useState("");
-  const [password,setPassword] = useState("");
-  const history = useHistory();
-  useEffect(() => {
-      if(localStorage.getItem('user-info')){
-        history.push('/add')
-      }
-  },[])
+  // const [email,setEmail]= useState("");
+  // const [password,setPassword] = useState("");
+  // const history = useHistory();
+  // useEffect(() => {
+  //     if(localStorage.getItem('user-info')){
+  //       history.push('/add')
+  //     }
+  // },[])
 
-  const loginSign = () => {   
-    console.log.warn(email,password)
-    let item = {email,password}
-    let result= fetch("localhost:8000/user",{
-      method:'POST',
-      body:JSON.stringify(item),
-      headers:{
-        "Cotent-Type":'application/json',
-        "Accept":'application/json'
-      }
-    })
-    result = result.json()
-    localStorage.setItem("user-info",JSON.stringify(result))
-    history.push("/add")
-  }
+  // const loginSign = () => {   
+  //   console.log.warn(email,password)
+  //   let item = {email,password}
+  //   let result= fetch("localhost:8000/user",{
+  //     method:'POST',
+  //     body:JSON.stringify(item),
+  //     headers:{
+  //       "Cotent-Type":'application/json',
+  //       "Accept":'application/json'
+  //     }
+  //   })
+  //   result = result.json()
+  //   localStorage.setItem("user-info",JSON.stringify(result))
+  //   history.push("/add")
+  // }
 
   return(
 
@@ -37,12 +37,15 @@ export default function SignUp() {
     <div className='container'>
       <h4>Sign In</h4>
       <div className='info'>
-      <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} id="email" name="email" placeholder='email'/>
+      <input type="text"  id="email" name="email" placeholder='email'/>
+      {/* value={email} onChange={(e)=>setEmail(e.target.value)} */}
       <br></br>
-      <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} id="senha" name="senha" placeholder='senha'/>
+      <input type="text"  id="senha" name="senha" placeholder='senha'/>
+      {/* value={password} onChange={(e)=>setPassword(e.target.value)} */}
       </div>
       
-      <Link to='/' className='button' onClick={loginSign} >
+      <Link to='/' className='button'  > 
+      {/* onClick={loginSign} */}
                 Logar
         </Link>
     
