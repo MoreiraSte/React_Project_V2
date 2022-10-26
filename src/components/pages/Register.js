@@ -8,13 +8,13 @@ import Swal from 'sweetalert2';
 
 export default function Register() {
 
-  const [name,setName] = useState("");
-  const [password,setPassword] = useState("");
+  const [nome,setNome] = useState("");
+  const [senha,setSenha] = useState("");
   const [email,setEmail]= useState("");
   const [genero,setGenero]= useState("");
   const [celular,setCelular]= useState("");
   const [cpf,setCpf]= useState("");
-  const [data,setData]= useState("");
+  const [data_nasc,setData_nasc]= useState("");
   const [idade,setIdade]= useState("");
   const [endereco,setEnd]= useState("");
 
@@ -36,12 +36,19 @@ export default function Register() {
     e.preventDefault();
 
     const data = {
-      name:name,
-      password:password,
+      nome:nome,
+      senha:senha,
       email: email,
+      genero:genero,
+      celular:celular,
+      cpf:cpf,
+      data_nasc:data_nasc,
+      idade:idade,
+      endereco:endereco
+      
     };
 
-    let USER_URL = "https://localhost:8000/client";
+    let USER_URL = "http://localhost:8000/setup_bank/client";
     axios({
       baseURL: USER_URL,
       method: "POST",
@@ -78,11 +85,11 @@ export default function Register() {
       <h4>Sign Up</h4>
       <div className='info'>
       <form onSubmit={handleRegister}>
-        <input type="text" value={name} onChange={(e)=>setName(e.target.value)} id="name" name="Nome" placeholder='Nome'/>
+        <input type="text" value={nome} onChange={(e)=>setNome(e.target.value)} id="name" name="Nome" placeholder='Nome'/>
         <br></br>
         <input type="number" value={idade} onChange={(e)=>setIdade(e.target.value)} id="age" name="Idade" placeholder='Idade'/> 
         <br></br>
-        <input type="date" value={data} onChange={(e)=>setData(e.target.value)} id="nasc" name="Nasc"/>
+        <input type="date" value={data_nasc} onChange={(e)=>setData_nasc(e.target.value)} id="nasc" name="Nasc"/>
         <br></br>
         <input type="text" value={celular} onChange={(e)=>setCelular(e.target.value)} id="phone" name="Celular" placeholder='Celular'/>
         <br></br>
@@ -90,13 +97,13 @@ export default function Register() {
         <br></br>
         <input type="text" value={cpf} onChange={(e)=>setCpf(e.target.value)} id="cpf" name="Cpf" placeholder='CPF'/>
         <br></br>
-        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="senha" name="Senha" placeholder='Senha'/>
+        <input type="password" value={senha} onChange={(e)=>setSenha(e.target.value)} id="senha" name="Senha" placeholder='Senha'/>
         <br></br>
         <div className='endereco'>
           <p id='endText'>Gênero:</p>
               <select id='selectGen' value={genero} onChange={(e)=>setGenero(e.target.value)}>
-              <option>Feminino</option>
-              <option>Masculino</option>
+              <option>F</option>
+              <option>M</option>
               </select>
           </div>
           <div className='endereco'>
