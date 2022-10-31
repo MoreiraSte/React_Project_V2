@@ -49,33 +49,37 @@ export default function Register() {
     };
 
     let USER_URL = "http://localhost:8000/setup_bank/client";
-    axios({
-      baseURL: USER_URL,
-      method: "POST",
-      data: data,
-    })
-      .then((res) => {
-        if (res.status === 201) {
-          Toast.fire({
-            icon: 'success',
-            title: 'Signed in successfully'
-          })
-        }
-        setTimeout(() => {
-          history.push("/login/");
-        }, 5000);
-      })
-      .catch((error) => {
-        console.log(error);
-        let error_msg = "";
-        Object.keys(error.response.data).forEach(function (e) {
-          error_msg += e + ": " + error.response.data[e][0] + " - ";
-        });
-        Toast.fire({
-          icon: 'error',
-          title: 'Error to sign up'
-        })
-      });
+    axios.post(USER_URL, data).then((res) => {
+      console.log(res);
+    });
+
+    // axios({
+    //   baseURL: USER_URL,
+    //   method: "POST",
+    //   data: data,
+    // })
+    //   .then((res) => {
+    //     if (res.status === 201) {
+    //       Toast.fire({
+    //         icon: 'success',
+    //         title: 'Signed in successfully'
+    //       })
+    //     }
+    //     setTimeout(() => {
+    //       history.push("/login/");
+    //     }, 5000);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     let error_msg = "";
+    //     Object.keys(error.response.data).forEach(function (e) {
+    //       error_msg += e + ": " + error.response.data[e][0] + " - ";
+    //     });
+    //     Toast.fire({
+    //       icon: 'error',
+    //       title: 'Error to sign up'
+    //     })
+    //   });
     }
 
 
