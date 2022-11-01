@@ -48,27 +48,27 @@ export default function Register() {
       
     };
 
-    let USER_URL = "http://localhost:8000/setup_bank/client";
+    let USER_URL = "http://localhost:8000/setup_bank/client/";
     axios.post(USER_URL, data).then((res) => {
       console.log(res);
     });
 
-    // axios({
-    //   baseURL: USER_URL,
-    //   method: "POST",
-    //   data: data,
-    // })
-    //   .then((res) => {
-    //     if (res.status === 201) {
-    //       Toast.fire({
-    //         icon: 'success',
-    //         title: 'Signed in successfully'
-    //       })
-    //     }
-    //     setTimeout(() => {
-    //       history.push("/login/");
-    //     }, 5000);
-    //   })
+    axios({
+      baseURL: USER_URL,
+      method: "POST",
+      // data: data,
+    })
+      .then((res) => {
+        if (res.status === 201) {
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+          })
+        }
+        setTimeout(() => {
+          history.push("/login/");
+        }, 5000);
+      })
     //   .catch((error) => {
     //     console.log(error);
     //     let error_msg = "";
