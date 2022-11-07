@@ -2,14 +2,14 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import '../../App.css';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 export default function SignUp() {
 
-  const navigate = useNavigate();
+  
   const [email,setEmail]= useState("");
   const [senha,setSenha] = useState("");
-  // const history = useHistory();
+   const history = useHistory();
   // useEffect(() => {
   //     if(localStorage.getItem('user-info')){
   //       history.push('/add')
@@ -17,8 +17,8 @@ export default function SignUp() {
   // },[])
 
   const loginSign = () => {   
-    let USER_URL = "http://localhost:8000/setup_bank/user/";
-    axios.post(USER_URL, {email, senha}).then((res) => {
+    let USER_URL = "http://localhost:8000/setup_bank/client/";
+    axios.get(USER_URL, {email, senha}).then((res) => {
       console.log(res);
     });
 
@@ -28,11 +28,12 @@ export default function SignUp() {
       
     })
       .then((res) => {
+        console.log(res)
         if (email === res.email && senha === res.senha) {
-          navigate(`/`)
+          history.push('/')
         }
         else {
-          navigate(`/sign-up`)
+          history.push('/sign-up')
         }
       
       })
@@ -48,7 +49,7 @@ export default function SignUp() {
       <div className='info'>
       <input type="text"   value={email} onChange={(e)=>setEmail(e.target.value)} id="email" name="email" placeholder='email'/>
       <br></br>
-      <input type="text"  value={senha} onChange={(e)=>setSenha(e.target.value)} id="senha" name="senha" placeholder='senha'/>
+      <input type="password"  value={senha} onChange={(e)=>setSenha(e.target.value)} id="senha" name="senha" placeholder='senha'/>
       </div>
       
       <button className='button' onClick={loginSign} >Submit</button>
