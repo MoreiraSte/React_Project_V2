@@ -24,12 +24,14 @@ export default function SignUp() {
     let result = await fetch("http://localhost:8000/setup_bank/client/",{
       method: "GET",
       // body:JSON.stringify(item)
+    
       
     });
       
     result = await result.json();
     localStorage.setItem("client",JSON.stringify(result))
     history.push("/home")
+    
     }
   
 
