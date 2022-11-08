@@ -1,0 +1,23 @@
+Here's the final solution you can try out in case no other solution was helpful to you. This one's applicable and useful in some cases and could possiblty be of some help. No worries if you're unsure about it but I'd recommend going through it.
+
+Create two components
+
+<NavLoggedIn>
+//Logged in links and styling goes here
+<NavLoggedIn>]
+
+<NavPublic>
+//Logged out links and styling goes here
+<NavPublic/>
+
+Finally, in your Navbar component, do this:
+
+const Navbar = () => {
+    return (
+            <>
+                
+                        {!isAuth() ? <NavLoggedIn /> : <NavPublic />}
+                
+        </>
+    );
+};

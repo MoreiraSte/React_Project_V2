@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import axios from 'axios';
+import React,{useState,useEffect} from 'react';
+
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -10,33 +10,26 @@ export default function SignUp() {
   const [email,setEmail]= useState("");
   const [senha,setSenha] = useState("");
    const history = useHistory();
-  // useEffect(() => {
-  //     if(localStorage.getItem('user-info')){
-  //       history.push('/add')
-  //     }
-  // },[])
+  useEffect(() => {
+      if(localStorage.getItem('client')){
+        history.push('/add')
+      }
+  },[])
+  
+    
+  async function loginSign (){  
 
-  const loginSign = () => {   
-    let USER_URL = "http://localhost:8000/setup_bank/client/";
-    axios.get(USER_URL, {email, senha}).then((res) => {
-      console.log(res);
-    });
-
-    axios({
-      baseURL: USER_URL,
+    
+    // let item = {email,senha};
+    let result = await fetch("http://localhost:8000/setup_bank/client/",{
       method: "GET",
+      // body:JSON.stringify(item)
       
-    })
-      .then((res) => {
-        console.log(res)
-        if (email === res.email && senha === res.senha) {
-          history.push('/')
-        }
-        else {
-          history.push('/sign-up')
-        }
+    });
       
-      })
+    result = await result.json();
+    localStorage.setItem("client",JSON.stringify(result))
+    history.push("/home")
     }
   
 

@@ -1,17 +1,10 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
-import './style.css'
-import { Link, useHistory } from 'react-router-dom';
+import '../hamburgerMenu/style.css'
+import { Link } from 'react-router-dom';
 
 
 function Hamburger (){
-  let user= JSON.parse(localStorage.getItem('client'))
-  const history = useHistory();
-
-  function logOut(){
-    localStorage.removeItem()
-    history.pushState('/sign-up')
-  }
     return(
         <Menu right >
           <Link to='/' className='menu-item'>
@@ -43,13 +36,6 @@ function Hamburger (){
               
               >
                 Sign In
-              </Link>
-              <Link
-                onClick={logOut}
-                className='menu-item'
-              
-              >
-                logout
               </Link>
         
       </Menu>
