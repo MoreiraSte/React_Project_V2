@@ -9,10 +9,11 @@ export default function SignUp() {
   
   const [email,setEmail]= useState("");
   const [senha,setSenha] = useState("");
-   const history = useHistory();
+  const history = useHistory();
+  
   useEffect(() => {
       if(localStorage.getItem('client')){
-        history.push('/add')
+        history.push('/sign-up')
       }
   },[])
   

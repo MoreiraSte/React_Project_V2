@@ -1,5 +1,5 @@
 
-import React from "react";
+import React,{useEffect} from "react";
 import NavbarPublic from "./components/Navbar";
 import NavbarUser from "./components/navbarUser";
 import "./App.css";
@@ -10,27 +10,34 @@ import Services from "./components/pages/Services";
 import SignUp from "./components/pages/SignUp";
 import Register from "./components/pages/Register";
 import Download from "./components/pages/Download";
+import { useHistory } from "react-router-dom";
 
 
 function App() {
+  const history = useHistory();
 
-  const Navbar = () => {
-    return (
-            <>
+  
+  // const Navbar = () => {
+
+   
+  //   return (
+  //           <>
                 
-                {!localStorage.getItem('client') ? <NavbarUser /> : <NavbarPublic />}
                 
-        </>
-    );
-};
+  //               {!localStorage.getItem('client') ? <NavbarPublic /> : <NavbarUser />}
+               
+                
+  //       </>
+  //   );
+  // };
 
   return (
     <>
       <Router>
-        <Navbar />
-        {/* <NavbarUser/> */}
+        
+        <NavbarUser/>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
           <Route path="/sign-up" component={SignUp} />

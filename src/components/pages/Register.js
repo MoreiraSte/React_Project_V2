@@ -60,13 +60,14 @@ export default function Register() {
     })
       .then((res) => {
         if (res.status === 201) {
+          history.push("/home");
           Toast.fire({
             icon: 'success',
             title: 'Signed in successfully'
           })
         }
         setTimeout(() => {
-          history.push("/login/");
+          history.push("/home");
         }, 5000);
       })
     //   .catch((error) => {

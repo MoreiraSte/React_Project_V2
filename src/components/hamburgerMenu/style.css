@@ -16,7 +16,15 @@
     right: 70px;
     top: 27px;
   }
- 
+ .menu-item-button{
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
+  margin-left: 30%;
+  margin-top: 10%;
+  background-color: #000000;
+  color: red;
+ }
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
