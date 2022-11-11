@@ -133,7 +133,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/download'
+              to='/cadastroBanco'
               className='nav-links'
             
             >
