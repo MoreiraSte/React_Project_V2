@@ -54,35 +54,44 @@ function Navbar() {
        
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
-            <Link to='/home' className='nav-links'>
-              Home
+            <Link to='/cadastroBanco' className='nav-links'>
+              Sua conta
             </Link>
           </li>
           <li className='nav-item'>
             <Link
-              to='/about'
+              to='/cartao'
               className='nav-links'
             
             >
-              About
+              Pedir cartão
             </Link>
           </li>
           <li className='nav-item'>
             <Link
-              to='/services'
+              to='/emprestimo'
               className='nav-links'
            
             >
-              Services
+              Emprestimo
             </Link>
           </li>
           <li className='nav-item'>
             <Link
-              to='/download'
+              to='/saldo'
               className='nav-links'
             
             >
-              Download app
+              Seu saldo
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
+              to='/transferencia'
+              className='nav-links'
+            
+            >
+              Transferências
             </Link>
           </li>
           <li>
@@ -133,7 +142,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/cadastroBanco'
+              to='/download'
               className='nav-links'
             
             >

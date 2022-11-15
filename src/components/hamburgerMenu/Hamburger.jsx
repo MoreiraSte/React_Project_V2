@@ -42,28 +42,35 @@ function Hamburger (){
       <>
         {logado?(
           <><Menu right >
-          <Link to='/home' className='menu-item'>
-                Home
+          <Link to='/cadastroBanco' className='menu-item'>
+                Sua conta
               </Link>
               <Link
-                to='/about'
+                to='/cartao'
                 className='menu-item'
               >
-                About
+                 Pedir cartão
               </Link>
               <Link
-                to='/services'
+                to='/emprestimo'
                 className='menu-item'
              
               >
-                Services
+                Emprestimo
               </Link>
               <Link
-                to='/download'
+                to='/saldo'
                 className='menu-item'
               
               >
-                Download app
+                Seu saldo
+              </Link>
+              <Link
+                to='/transferencia'
+                className='menu-item'
+              
+              >
+                Transferências
               </Link>
             
               <button onClick={logout}
