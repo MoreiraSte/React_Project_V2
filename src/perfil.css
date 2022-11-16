@@ -16,6 +16,27 @@
   justify-content: center;
   font-size: 3rem;
 }
+#texts{
+  font-size: 20px;
+}
+
+#contaCard{
+  font-size: 40px;
+}
+#agenciaCard{
+  font-size: 40px;
+}
+#textCard{
+  font-size: 40px;
+}
+.creditCard{
+  display: block;
+}
+#creditCardId{
+  display: flex;
+  justify-content: space-around;
+  
+}
 
 .CartaoPage{
   background: url('/images/img_pagecard.jpg') center center/cover no-repeat;

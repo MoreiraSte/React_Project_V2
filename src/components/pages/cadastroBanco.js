@@ -44,6 +44,15 @@ export default function cadastroBanco() {
         saldo:saldo,
         
       };
+
+    //   let result = fetch("http://localhost:8000/setup_bank/conta/",{
+    //     method: "GET",
+    // }).then(res=>res.json()).then(data => {
+    //   console.log(data)
+    // })
+     
+
+      
   
       let USER_URL = "http://localhost:8000/setup_bank/conta/";
       axios.post(USER_URL, data).then((res) => {
@@ -53,7 +62,7 @@ export default function cadastroBanco() {
       axios({
         baseURL: USER_URL,
         method: "POST",
-        // data: data,
+        data: data,
       })
         .then((res) => {
           if (res.status === 201) {
@@ -90,7 +99,7 @@ export default function cadastroBanco() {
                             <button className='button' type='submit'>Registrar</button>
                             </form>
 
-                            <p>*Será gerado se seu usuário vai ser free ou premium,<br></br>para que possa realizar emprestimos</p>
+                            <p>*Será gerado se seu usuário vai ser free ou premium,<br></br>para que possa realizar emprestimos e<br></br>pedir cartão de crédito</p>
                         </div>
                     </div>
                 </div>
