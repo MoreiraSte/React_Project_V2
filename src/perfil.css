@@ -16,18 +16,25 @@
   justify-content: center;
   font-size: 3rem;
 }
-#texts{
-  font-size: 20px;
-}
-
-#contaCard{
+#textCard{
+  margin-top: 30%;
+  margin-left: 10px;
   font-size: 40px;
+  color: #fff;
+}
+#contaCard{
+  margin-top: 50px;
+  font-size: 40px;
+  color: #fff;
 }
 #agenciaCard{
   font-size: 40px;
+  margin-top: 50px;
+  color: #fff;
 }
-#textCard{
-  font-size: 40px;
+#texts{
+  font-size: 20px;
+  color: #fff;
 }
 .creditCard{
   display: block;
@@ -35,7 +42,25 @@
 #creditCardId{
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
   
+}
+#textTipoCard{
+  font-size: 20px;
+}
+.TipoCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.TipoCard select{
+  margin-top: 20px;
+  width: 60px;
+  height: 30px;
+  border:4px solid red
 }
 
 .CartaoPage{
@@ -150,7 +175,7 @@
 .containerPageCard{
   height: 92vh;
   width: 100%;
-  border:3px solid rgb(255, 255, 255);
+  
   display: flex;
   justify-content: space-around;
   align-items: center
@@ -177,12 +202,12 @@
   font-size: 20px;
   
   height: 30%;
-  margin-top: 10%;
+  
   
 }
 #buttonDiv{
   height: 20%;
- margin-top: 20%;
+ margin-top: 10%;
   
 }
 #buttonDiv button{
@@ -298,6 +323,39 @@
   #img_handshake{
     width: 90vw;
   }
-  
+  .containerPageCard{
+    display: block;
+    height: 140vh;
+  }
+  .containerAdd{
+    width: 90vw;
+    margin-left: 17px;
+    margin-top: 10px;
+  }
+  .creditCard{
+    width: 95vw;
+    height: 30vh;
+    margin-left: 5px;
+    margin-top: 60px;
+  }
+  .CartaoPage{
+    height: 145vh;
+  }
+  #textCard{
+    margin-top: 30%;
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  #creditCardId{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-around;
+  }
+  #contaCard{
+    margin-top: 50px;
+  }
+  #agenciaCard{
+    margin-top: 50px;
+  }
   }
 

@@ -105,8 +105,9 @@ export default function Register() {
         <input type="password" value={senha} onChange={(e)=>setSenha(e.target.value)} id="senha" name="Senha" placeholder='Senha'/>
         <br></br>
         <div className='endereco'>
-          <p id='endText'>Gênero:</p>
+          <p id='endText'>Gênero: F:Feminino/M:Masculino</p>
               <select id='selectGen' value={genero} onChange={(e)=>setGenero(e.target.value)}>
+              <option></option>
               <option>F</option>
               <option>M</option>
               </select>
@@ -114,6 +115,7 @@ export default function Register() {
           <div className='endereco'>
           <p id='endText'>Endereço:</p>
               <select id='selectGen' value={endereco} onChange={(e)=>setEnd(e.target.value)}>
+              <option></option>
               <option>SP</option>
               <option>AC</option>
               <option>AL</option>

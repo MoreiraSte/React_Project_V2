@@ -1,35 +1,67 @@
 import React,{useEffect,useState} from 'react';
 import '../../perfil.css'
+import {  useHistory } from 'react-router-dom';
+import axios from "axios";
 
 
 
 export default function CartaoPage() {
+//   var modal = document.getElementById("myModal");
 
-    function Pedido(){
-        var modal = document.getElementById("myModal");
+          //   var btn = document.getElementById("myBtn");
+    
+          //   var span = document.getElementsByClassName("close")[0];
+    
+          //   btn.onclick = function() {
+          //   modal.style.display = "block";
+          //   }
+    
+          //   span.onclick = function() {
+          //   modal.style.display = "none";
+          //   }
+    
+          //   window.onclick = function(event) {
+          //   if (event.target == modal) {
+          //       modal.style.display = "none";
+          //   }
+          // }
 
-        var btn = document.getElementById("myBtn");
 
-        var span = document.getElementsByClassName("close")[0];
 
-        btn.onclick = function() {
-        modal.style.display = "block";
-        }
+  // const[statusCartao,setStatusCartao] = useState("");
+  
+  // function solicitarCartao(e) {
+  //   e.preventDefault();
 
-        span.onclick = function() {
-        modal.style.display = "none";
-        }
+  //   const data = {
+  //     status_cartao:statusCartao
+  //   };
 
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-}
-    }
+  //     let contador = 0;
+  //     let USER_URL = "http://localhost:8000/setup_bank/cartao/";
+  //     axios.post(USER_URL, data).then((res) => {
+  //       console.log(res);
+  //     });
+  
+  //     axios({
+  //       baseURL: USER_URL,
+  //       method: "POST",
+  //       // data: data,
+  //     })
+  //       .then((res) => {
+  //         if (res.status === 201) {
+  //           contador+1;
+          
+  //         }
+          
+  //       })
+  //     }
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
+
+    
     
     
     useEffect(() => {
@@ -60,9 +92,18 @@ export default function CartaoPage() {
                     <div id='h6Div'>
                     <h6>Peça seu cartão de crédito!</h6>
                     </div>
-
+                    <div className='TipoCard'>
+                      <p id='textTipoCard'>Tipo do cartão: F:Fisico/D:Digital</p>
+                      <select >
+                      {/* value={statusCartao} onChange={(e)=>setStatusCartao(e.target.value)} */}
+                        <option></option>
+                        <option>F</option>
+                        <option>D</option>
+                      </select>
+                    </div>
                     <div id='buttonDiv'>
                     <button className="btn btn-white btn-animate">Pedir</button>
+                    {/* onClick={solicitarCartao}  */}
                     </div>
 
                     <div id='pDiv'>
