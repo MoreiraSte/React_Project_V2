@@ -6,6 +6,10 @@ export default function EmprestPage() {
 
  
     return (
-            <div className='EmprestPage'></div>
+            <div className='EmprestPage'>
+                <div>
+                    
+                </div>
+            </div>
         )
 }

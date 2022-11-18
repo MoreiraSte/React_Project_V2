@@ -31,7 +31,7 @@ export default function SignUp() {
       
     result = await result.json();
     localStorage.setItem("client",JSON.stringify(result))
-    history.push("/home")
+    history.push("/cadastroBanco")
     
     }
   

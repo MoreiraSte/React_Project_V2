@@ -6,56 +6,40 @@ import axios from "axios";
 
 
 export default function CartaoPage() {
-//   var modal = document.getElementById("myModal");
 
-          //   var btn = document.getElementById("myBtn");
-    
-          //   var span = document.getElementsByClassName("close")[0];
-    
-          //   btn.onclick = function() {
-          //   modal.style.display = "block";
-          //   }
-    
-          //   span.onclick = function() {
-          //   modal.style.display = "none";
-          //   }
-    
-          //   window.onclick = function(event) {
-          //   if (event.target == modal) {
-          //       modal.style.display = "none";
-          //   }
-          // }
+ 
 
 
+  const[statusCartao,setStatusCartao] = useState("");
+  const[contador,setContador] = useState(0);
 
-  // const[statusCartao,setStatusCartao] = useState("");
   
-  // function solicitarCartao(e) {
-  //   e.preventDefault();
+  function solicitarCartao(e) {
+    e.preventDefault();
 
-  //   const data = {
-  //     status_cartao:statusCartao
-  //   };
+    const data = {
+      status_cartao:statusCartao
+    };
 
-  //     let contador = 0;
-  //     let USER_URL = "http://localhost:8000/setup_bank/cartao/";
-  //     axios.post(USER_URL, data).then((res) => {
-  //       console.log(res);
-  //     });
+      
+      let USER_URL = "http://localhost:8000/setup_bank/cartao/";
+      axios.post(USER_URL, data).then((res) => {
+        console.log(res);
+      });
   
-  //     axios({
-  //       baseURL: USER_URL,
-  //       method: "POST",
-  //       // data: data,
-  //     })
-  //       .then((res) => {
-  //         if (res.status === 201) {
-  //           contador+1;
+      axios({
+        baseURL: USER_URL,
+        method: "POST",
+        // data: data,
+      }).then((res) => {
+          if (res.status === 201) {
+            setContador(contador => contador+=1)
+           
           
-  //         }
+          }
           
-  //       })
-  //     }
+        })
+      }
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -94,22 +78,22 @@ export default function CartaoPage() {
                     </div>
                     <div className='TipoCard'>
                       <p id='textTipoCard'>Tipo do cartão: F:Fisico/D:Digital</p>
-                      <select >
-                      {/* value={statusCartao} onChange={(e)=>setStatusCartao(e.target.value)} */}
+                      <select value={statusCartao} onChange={(e)=>setStatusCartao(e.target.value)}>
+                      
                         <option></option>
                         <option>F</option>
                         <option>D</option>
                       </select>
                     </div>
                     <div id='buttonDiv'>
-                    <button className="btn btn-white btn-animate">Pedir</button>
-                    {/* onClick={solicitarCartao}  */}
+                    <button onClick={solicitarCartao}  className="button">Pedir</button>
+                    
                     </div>
 
                     <div id='pDiv'>
                     <p>Número de cartões pedidos:</p>
                     <div className='contador'>
-
+                      {contador}
                     </div>
                     </div>
                     
@@ -131,8 +115,8 @@ export default function CartaoPage() {
                     </h3>
                     ))}
                     </div>
-
-                    <h3 id='textCard'>Credit Card</h3>
+                    
+                    <h3 id='textCard'>Credit Card</h3><p id='premCard'>Premium</p>
                     </div>
                     
                     </div>
