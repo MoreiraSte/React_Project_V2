@@ -19,26 +19,11 @@ import cadastroBanco from "./components/pages/cadastroBanco";
 
 
 import './perfil.css';
-// import { useHistory } from "react-router-dom";
+
 
 
 function App() {
-  // const history = useHistory();
-
-  
-  // const Navbar = () => {
-
-   
-  //   return (
-  //           <>
-                
-                
-  //               {!localStorage.getItem('client') ? <NavbarPublic /> : <NavbarUser />}
-               
-                
-  //       </>
-  //   );
-  // };
+ 
 
   return (
     <>
