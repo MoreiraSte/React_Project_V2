@@ -3,6 +3,8 @@ import React,{useState,useEffect} from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 export default function SignUp() {
 
@@ -22,15 +24,16 @@ export default function SignUp() {
 
     
     // let item = {email,senha};
-    let result = await fetch("http://localhost:8000/setup_bank/client/",{
-      method: "GET",
-      // body:JSON.stringify(item)
-    
+    let result = await fetch("http://localhost:8000/auth/jwt/create/",{
+      method: "POST",
+      body:JSON.stringify({ username: email, password: senha }),
+      headers: { 'Content-Type': 'application/json' }
       
     });
       
     result = await result.json();
-    localStorage.setItem("client",JSON.stringify(result))
+    localStorage.setItem("token", result.access)
+    Notify.success('Usuário logado');
     history.push("/cadastroBanco")
     
     }

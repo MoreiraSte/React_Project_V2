@@ -4,7 +4,8 @@ import '../../perfil.css';
 import '../../App.css';
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
-import Swal from 'sweetalert2';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 
 
@@ -22,17 +23,7 @@ export default function cadastroBanco() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const history = useHistory();
   
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
+   
   
     function RegisterCont(e) {
       e.preventDefault();
@@ -55,25 +46,27 @@ export default function cadastroBanco() {
       
   
       let USER_URL = "http://localhost:8000/setup_bank/conta/";
-      axios.post(USER_URL, data).then((res) => {
-        console.log(res);
-      });
   
       axios({
         baseURL: USER_URL,
         method: "POST",
         data: data,
+        headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
       })
         .then((res) => {
+          console.log('Token ' + localStorage.getItem('token'))
           if (res.status === 201) {
+
+            
             history.push("/saldo");
-            Toast.fire({
-              icon: 'success',
-              title: 'Signed in successfully'
-            })
+            
+           
           }
           setTimeout(() => {
+            Notify.info('Conta criada');
             history.push("/saldo");
+            Notify.success('Saldo atualizado');
+            Notify.info('Usuário Premium gerado');
           }, 5000);
         })
     }

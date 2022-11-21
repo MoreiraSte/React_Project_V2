@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './navbarUser.css';
 import Hamburger from './hamburgerMenu/Hamburger'
 import { useHistory } from "react-router-dom";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -38,7 +40,8 @@ function Navbar() {
     console.log('funcionou')
     setTest(false)
     setTimeout(() => {
-      
+      Notify.warning('Você saiu da sua conta');
+
       history.push('/home')
     }, 2000);
    

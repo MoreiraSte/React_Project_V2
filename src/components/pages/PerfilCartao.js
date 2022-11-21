@@ -2,6 +2,8 @@ import React,{useEffect,useState} from 'react';
 import '../../perfil.css'
 import {  useHistory } from 'react-router-dom';
 import axios from "axios";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 
 
@@ -33,6 +35,8 @@ export default function CartaoPage() {
         // data: data,
       }).then((res) => {
           if (res.status === 201) {
+            Notify.success('Pedido aprovado');
+
             setContador(contador => contador+=1)
            
           

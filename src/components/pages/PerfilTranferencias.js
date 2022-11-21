@@ -6,6 +6,10 @@ export default function TransfPage() {
 
  
     return (
-            <div className='TransfPage'></div>
+            <div className='TransfPage'>
+                <div className='containerTransf'>
+                    
+                </div>
+            </div>
         )
 }

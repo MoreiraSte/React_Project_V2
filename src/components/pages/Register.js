@@ -3,6 +3,8 @@ import '../../App.css';
 import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import Swal from 'sweetalert2';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 
 
@@ -48,6 +50,10 @@ export default function Register() {
       
     };
 
+    axios.post('http://localhost:8000/auth/users/', { username: nome, password: senha })
+      .then(res => {
+        console.log(res.data);
+      })
     let USER_URL = "http://localhost:8000/setup_bank/client/";
     axios.post(USER_URL, data).then((res) => {
       console.log(res);
@@ -60,7 +66,8 @@ export default function Register() {
     })
       .then((res) => {
         if (res.status === 201) {
-          history.push("/home");
+          Notify.success('Conta criada');
+          history.push("/sign-up");
           Toast.fire({
             icon: 'success',
             title: 'Signed in successfully'
