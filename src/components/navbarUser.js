@@ -10,18 +10,16 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const [test, setTest] = useState(true);
   const [logado, setLogado] = useState(false);
   const history = useHistory();
-  // const [, updateState] = React.useState();
-  // const forceUpdate = React.useCallback(() => updateState({}), []);
+
   useEffect(() => {
     if(history == null){
       return
     }
     const unlisten = history.listen((location) => {
       console.log('new location: ', location)
-      if(localStorage.getItem('client') == undefined){
+      if(!localStorage.getItem('token')){
         setLogado(false)
       }
       else{
@@ -35,16 +33,9 @@ function Navbar() {
 
 
   const logout = () => {   
-    
-    localStorage.removeItem('client')
-    console.log('funcionou')
-    setTest(false)
-    setTimeout(() => {
-      Notify.warning('Você saiu da sua conta');
-
-      history.push('/home')
-    }, 2000);
-   
+    localStorage.removeItem('token')
+    Notify.warning('Você saiu da sua conta');
+    history.push('/home')
   }
 
   return (
@@ -95,15 +86,6 @@ function Navbar() {
             
             >
               Transferências
-            </Link>
-          </li>
-          <li>
-            <Link
-              
-              className='nav-links-mobile'
-            
-            >
-              Logout
             </Link>
           </li>
         </ul>

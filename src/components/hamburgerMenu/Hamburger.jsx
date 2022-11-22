@@ -6,17 +6,18 @@ import { Link, useHistory } from 'react-router-dom';
 
 function Hamburger (){
   let user= JSON.parse(localStorage.getItem('client'))
-  const history = useHistory();
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
   const [logado, setLogado] = useState(false);
-  const [test, setTest] = useState(true);
+  const history = useHistory();
+
   useEffect(() => {
-    console.log(history)
     if(history == null){
       return
     }
     const unlisten = history.listen((location) => {
       console.log('new location: ', location)
-      if(localStorage.getItem('client') == null){
+      if(!localStorage.getItem('token')){
         setLogado(false)
       }
       else{
@@ -28,13 +29,11 @@ function Hamburger (){
     }
   }, [])
 
+
   const logout = () => {   
-    localStorage.removeItem('client')
-    console.log('funcionou')
-    setTest(false)
-    setTimeout(() => {
+    localStorage.removeItem('token')
       history.push('/home')
-    }, 2000);
+    
      
   }
 

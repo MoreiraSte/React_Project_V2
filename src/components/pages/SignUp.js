@@ -14,30 +14,25 @@ export default function SignUp() {
   const history = useHistory();
   
   useEffect(() => {
-      if(localStorage.getItem('client')){
+      if(localStorage.getItem('users')){
         history.push('/sign-up')
       }
   },[])
   
-    
   async function loginSign (){  
 
-    
-    // let item = {email,senha};
-    let result = await fetch("http://localhost:8000/auth/jwt/create/",{
-      method: "POST",
-      body:JSON.stringify({ username: email, password: senha }),
-      headers: { 'Content-Type': 'application/json' }
-      
-    });
-      
-    result = await result.json();
-    localStorage.setItem("token", result.access)
-    Notify.success('Usuário logado');
-    history.push("/cadastroBanco")
-    
+      let result = await fetch("http://localhost:8000/auth/jwt/create/",{
+        method: "POST",
+        body:JSON.stringify({ username: email, password: senha }),
+        headers: { 'Content-Type': 'application/json' }
+        
+      });
+
+      // result = await result.json();
+      // localStorage.setItem("token", result.access)
+      // Notify.success('Usuário logado');
+      // history.push("/cadastroBanco")
     }
-  
 
   return(
 

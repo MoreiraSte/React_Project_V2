@@ -9,8 +9,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export default function CartaoPage() {
 
- 
-
 
   const[statusCartao,setStatusCartao] = useState("");
   const[contador,setContador] = useState(0);

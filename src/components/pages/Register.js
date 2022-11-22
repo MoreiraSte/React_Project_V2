@@ -50,20 +50,13 @@ export default function Register() {
       
     };
 
-    axios.post('http://localhost:8000/auth/users/', { username: nome, password: senha })
+    axios.post('http://localhost:8000/auth/users/', { username: nome, email: email, password: senha })
       .then(res => {
         console.log(res.data);
       })
     let USER_URL = "http://localhost:8000/setup_bank/client/";
-    axios.post(USER_URL, data).then((res) => {
-      console.log(res);
-    });
 
-    axios({
-      baseURL: USER_URL,
-      method: "POST",
-      // data: data,
-    })
+    axios.post(USER_URL, data)
       .then((res) => {
         if (res.status === 201) {
           Notify.success('Conta criada');
