@@ -29,6 +29,7 @@ export default function EmprestPage() {
             baseURL: USER_URL,
             method: "POST",
             data: data,
+            headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
           }).then((res) => {
               if (res.status === 201) {
 

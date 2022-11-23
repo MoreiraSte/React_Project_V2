@@ -61,26 +61,11 @@ export default function Register() {
         if (res.status === 201) {
           Notify.success('Conta criada');
           history.push("/sign-up");
-          Toast.fire({
-            icon: 'success',
-            title: 'Signed in successfully'
-          })
+         
         }
-        setTimeout(() => {
-          history.push("/home");
-        }, 5000);
+        
       })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     let error_msg = "";
-    //     Object.keys(error.response.data).forEach(function (e) {
-    //       error_msg += e + ": " + error.response.data[e][0] + " - ";
-    //     });
-    //     Toast.fire({
-    //       icon: 'error',
-    //       title: 'Error to sign up'
-    //     })
-    //   });
+
     }
 
 

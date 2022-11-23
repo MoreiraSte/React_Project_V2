@@ -30,7 +30,8 @@ export default function CartaoPage() {
       axios({
         baseURL: USER_URL,
         method: "POST",
-        // data: data,
+        data: data,
+        headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
       }).then((res) => {
           if (res.status === 201) {
             Notify.success('Pedido aprovado');

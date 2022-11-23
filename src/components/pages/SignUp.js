@@ -9,7 +9,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export default function SignUp() {
 
   
-  const [email,setEmail]= useState("");
+  const [nome,setNome]= useState("");
   const [senha,setSenha] = useState("");
   const history = useHistory();
   
@@ -23,16 +23,37 @@ export default function SignUp() {
 
       let result = await fetch("http://localhost:8000/auth/jwt/create/",{
         method: "POST",
-        body:JSON.stringify({ username: email, password: senha }),
+        body:JSON.stringify({ username: nome, password: senha }),
         headers: { 'Content-Type': 'application/json' }
         
-      });
+      }).then(res => res.json()).then(data => {
+        console.log(data.access)
+        console.log(data.detail)
+        if (data.detail == undefined){
+          localStorage.setItem("token", data.access)
+          Notify.success('Usuário logado');
+          history.push("/cadastroBanco")
+        }
+        else{
+          history.push('/sign-up')
+          Notify.failure("Dados errados")
+          
+        }
 
+      });
+      console.log(result)
+      // if (nome !== localStorage.getItem("token") || senha !== localStorage.getItem("token")){
+      //   history.push('/sign-up')
+      //   Notify.failure("Dados errados")
+      // }
+      // if (nome == localStorage.getItem("token") || senha == localStorage.getItem("token")){
       // result = await result.json();
       // localStorage.setItem("token", result.access)
       // Notify.success('Usuário logado');
       // history.push("/cadastroBanco")
+      // }
     }
+
 
   return(
 
@@ -41,7 +62,7 @@ export default function SignUp() {
       <h4>Sign In</h4>
 
       <div className='info'>
-      <input type="text"   value={email} onChange={(e)=>setEmail(e.target.value)} id="email" name="email" placeholder='email'/>
+      <input type="text"   value={nome} onChange={(e)=>setNome(e.target.value)} id="nome" name="nome" placeholder='nome'/>
       <br></br>
       <input type="password"  value={senha} onChange={(e)=>setSenha(e.target.value)} id="senha" name="senha" placeholder='senha'/>
       </div>
