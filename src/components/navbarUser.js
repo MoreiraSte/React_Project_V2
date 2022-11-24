@@ -19,7 +19,7 @@ function Navbar() {
     }
     const unlisten = history.listen((location) => {
       console.log('new location: ', location)
-      if(!localStorage.getItem('token')){
+      if(!localStorage.getItem('client')){
         setLogado(false)
       }
       else{
@@ -33,7 +33,7 @@ function Navbar() {
 
 
   const logout = () => {   
-    localStorage.removeItem('token')
+    localStorage.removeItem('client')
     Notify.warning('Você saiu da sua conta');
     history.push('/home')
   }

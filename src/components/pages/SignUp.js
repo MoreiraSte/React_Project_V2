@@ -9,34 +9,35 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export default function SignUp() {
 
   
-  const [nome,setNome]= useState("");
+  const [email,setEmail]= useState("");
   const [senha,setSenha] = useState("");
   const history = useHistory();
   
   useEffect(() => {
-      if(localStorage.getItem('users')){
+      if(localStorage.getItem('client')){
         history.push('/sign-up')
       }
   },[])
   
   async function loginSign (){  
 
-      let result = await fetch("http://localhost:8000/auth/jwt/create/",{
-        method: "POST",
-        body:JSON.stringify({ username: nome, password: senha }),
-        headers: { 'Content-Type': 'application/json' }
+      let result = await fetch("http://localhost:8000/setup_bank/client/",{
+        method: "GET",
+        // body:JSON.stringify({ username: nome, password: senha }),
+        // headers: { 'Content-Type': 'application/json' }
         
       }).then(res => res.json()).then(data => {
-        console.log(data.access)
-        console.log(data.detail)
-        if (data.detail == undefined){
-          localStorage.setItem("token", data.access)
+        console.log(data)
+        // console.log(data.detail)
+        if (localStorage.getItem("client") ==  undefined){
           Notify.success('Usuário logado');
           history.push("/cadastroBanco")
+            
         }
         else{
           history.push('/sign-up')
           Notify.failure("Dados errados")
+         
           
         }
 
@@ -62,7 +63,7 @@ export default function SignUp() {
       <h4>Sign In</h4>
 
       <div className='info'>
-      <input type="text"   value={nome} onChange={(e)=>setNome(e.target.value)} id="nome" name="nome" placeholder='nome'/>
+      <input type="text"   value={email} onChange={(e)=>setEmail(e.target.value)} id="nome" name="nome" placeholder='email'/>
       <br></br>
       <input type="password"  value={senha} onChange={(e)=>setSenha(e.target.value)} id="senha" name="senha" placeholder='senha'/>
       </div>

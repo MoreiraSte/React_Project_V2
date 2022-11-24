@@ -22,17 +22,7 @@ export default function Register() {
 
   const history = useHistory();
 
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
+  
 
   function handleRegister(e) {
     e.preventDefault();
@@ -50,10 +40,10 @@ export default function Register() {
       
     };
 
-    axios.post('http://localhost:8000/auth/users/', { username: nome, email: email, password: senha })
-      .then(res => {
-        console.log(res.data);
-      })
+    // axios.post('http://localhost:8000/auth/users/', { username: nome, email: email, password: senha })
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
     let USER_URL = "http://localhost:8000/setup_bank/client/";
 
     axios.post(USER_URL, data)
