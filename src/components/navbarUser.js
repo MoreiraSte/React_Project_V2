@@ -14,15 +14,27 @@ function Navbar() {
   const history = useHistory();
 
   useEffect(() => {
+    if(localStorage.getItem('client') == undefined){
+      console.log('nao ta logado')
+      setLogado(false)
+    }
+    else{
+      console.log('ta logado')
+
+      setLogado(true)
+    }
     if(history == null){
       return
     }
     const unlisten = history.listen((location) => {
       console.log('new location: ', location)
-      if(!localStorage.getItem('client')){
+      if(localStorage.getItem('client') == undefined){
+        console.log('nao ta logado')
         setLogado(false)
       }
       else{
+        console.log('ta logado')
+
         setLogado(true)
       }
     })

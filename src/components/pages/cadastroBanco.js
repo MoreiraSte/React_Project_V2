@@ -51,10 +51,10 @@ export default function cadastroBanco() {
         baseURL: USER_URL,
         method: "POST",
         data: data,
-        headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
+      
       })
         .then((res) => {
-          console.log('Token ' + localStorage.getItem('token'))
+          
           if (res.status === 201) {
 
             

@@ -30,6 +30,8 @@ export default function SignUp() {
         console.log(data)
         // console.log(data.detail)
         if (localStorage.getItem("client") ==  undefined){
+          localStorage.setItem("client",'')
+          console.log(data)
           Notify.success('Usuário logado');
           history.push("/cadastroBanco")
             

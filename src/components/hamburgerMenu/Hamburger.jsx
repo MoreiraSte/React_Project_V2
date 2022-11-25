@@ -2,10 +2,12 @@ import React, {useState,useEffect}from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import './style.css'
 import { Link, useHistory } from 'react-router-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 
 function Hamburger (){
-  let user= JSON.parse(localStorage.getItem('client'))
+  // let user= JSON.parse(localStorage.getItem('client'))
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [logado, setLogado] = useState(false);
@@ -17,7 +19,7 @@ function Hamburger (){
     }
     const unlisten = history.listen((location) => {
       console.log('new location: ', location)
-      if(!localStorage.getItem('token')){
+      if(localStorage.getItem('client') == undefined){
         setLogado(false)
       }
       else{
@@ -31,7 +33,8 @@ function Hamburger (){
 
 
   const logout = () => {   
-    localStorage.removeItem('token')
+    localStorage.removeItem('client')
+    Notify.warning('Você saiu da sua conta');
       history.push('/home')
     
      
