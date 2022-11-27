@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 export default function EmprestPage() {
 
-    const[quantia,setQuantia] = useState()
+    const[quantia,setQuantia] = useState("");
     const history = useHistory();
 
 
@@ -21,24 +21,31 @@ export default function EmprestPage() {
     
           
           let USER_URL = "http://localhost:8000/setup_bank/empr/";
-          axios.post(USER_URL, data).then((res) => {
-            console.log(res);
-          });
+         
       
           axios({
             baseURL: USER_URL,
             method: "POST",
             data: data,
-            headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
+           
           }).then((res) => {
               if (res.status === 201) {
-
-                Notify.success('Emprestimo aprovado');
+                console.log(res);
 
                 history.push("/saldo")
+
+                Notify.success('Emprestimo aprovado');
                 Notify.info('Saldo atualizado');
                 
               }
+              setTimeout(() => {
+
+                Notify.success('Emprestimo aprovado');
+                history.push("/saldo")
+
+                Notify.info('Saldo atualizado');
+                
+              }, 3000);
               
             })
           }

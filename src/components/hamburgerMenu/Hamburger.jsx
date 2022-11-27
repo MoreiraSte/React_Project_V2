@@ -14,6 +14,15 @@ function Hamburger (){
   const history = useHistory();
 
   useEffect(() => {
+    if(localStorage.getItem('client') == undefined){
+      console.log('nao ta logado')
+      setLogado(false)
+    }
+    else{
+      console.log('ta logado')
+
+      setLogado(true)
+    }
     if(history == null){
       return
     }

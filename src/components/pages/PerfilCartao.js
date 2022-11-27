@@ -23,17 +23,15 @@ export default function CartaoPage() {
 
       
       let USER_URL = "http://localhost:8000/setup_bank/cartao/";
-      axios.post(USER_URL, data).then((res) => {
-        console.log(res);
-      });
+    
   
       axios({
         baseURL: USER_URL,
         method: "POST",
         data: data,
-        headers: { 'Authorization': 'Token ' + localStorage.getItem('token') }
       }).then((res) => {
           if (res.status === 201) {
+            console.log(res);
             Notify.success('Pedido aprovado');
 
             setContador(contador => contador+=1)

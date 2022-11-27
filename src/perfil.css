@@ -26,6 +26,77 @@
     align-items: center;
 }
 
+.containerTransf{
+  background: rgb(201,12,12);
+  background: linear-gradient(103deg, rgba(201,12,12,1) 21%, rgba(171,171,171,1) 68%);
+  height: 92vh;
+  width: 100%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.formTransf{
+  background-color: rgba(255, 255, 255, 0.925);  
+  height: 80vh;
+  width: 45vw;
+  border: 4px solid red;
+  border-radius: 20px;
+}
+.formTransf p{
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style:oblique;
+  text-align: center;
+  margin-top: 10px;
+}
+.formTransf select{
+  width: 30%;
+  margin-left: 35%;
+  text-align: center;
+  border: 4px solid red;
+  border-radius: 10px;
+}
+.listaTransf{
+  background-color: rgba(255, 255, 255, 0.699);
+  height: 80vh;
+  width: 45vw;
+  border: 4px solid red;
+  border-radius: 20px;
+
+}
+#textTransf{
+  font-size: 20px;
+  margin-top: 20px;
+}
+.containerTinput{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+.containerTinput input{
+  height: 40px;
+  text-align: center;
+}
+.listaTransf p{
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style:oblique;
+  text-align: center;
+  margin-top: 10px;
+}
+.formTransf button{
+  height: 9%;
+  width: 30%;
+  border-radius: 20px;
+  background-color:#c71111;
+  color: #fff;
+  font-size: 15px;
+  font-style: oblique;
+  margin-left: 35%;
+  margin-top: 40px;
+}
 .formEmprest{
   background-color: #EDEDED;
   width: 25vw;
@@ -148,7 +219,7 @@
 .containerAdd{
   background-color: rgba(240, 248, 255, 0.74);
   width: 30vw;
-  height: 60vh;
+  height: 74vh;
   /* align-content: space-around; */
   flex-direction: column;
   /* justify-content: center; */
@@ -351,9 +422,9 @@
 }
 
 .creditCard{
-  width: 30vw;
+  width: 34vw;
   background-color: #fff;
-  height: 35vh;
+  height: 45vh;
   margin-top: 20%;
   border-radius: 30px;
   background: rgb(255,0,0);
@@ -380,23 +451,28 @@
   #img_handshake{
     width: 90vw;
   }
+  .containerCard{
+    width: 70vws;
+  }
   .containerPageCard{
     display: block;
     height: 140vh;
+    width: 83vw;
   }
   .containerAdd{
-    width: 90vw;
-    margin-left: 17px;
+    width: 85vw;
+   
     margin-top: 10px;
   }
   .creditCard{
-    width: 95vw;
+    width: 85vw;
     height: 30vh;
-    margin-left: 5px;
+    margin-right: 50px;
     margin-top: 60px;
   }
   .CartaoPage{
     height: 145vh;
+    width: 100vw;
   }
   #textCard{
     margin-top: 30%;
@@ -421,6 +497,22 @@
   }
   .formEmprest{
     width: 90vw;
+  }
+  .containerTransf{
+    display: block;
+    height: 200vh;
+    margin-top: 220%;
+    
+  }
+  .formTransf{
+    width: 95vw;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+  .listaTransf{
+    width: 95vw;
+    margin-left: 10px;
+    margin-top: 30px;
   }
   
   }

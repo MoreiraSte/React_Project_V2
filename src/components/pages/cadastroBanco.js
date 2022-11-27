@@ -67,7 +67,7 @@ export default function cadastroBanco() {
             history.push("/saldo");
             Notify.success('Saldo atualizado');
             Notify.info('Usuário Premium gerado');
-          }, 5000);
+          }, 3000);
         })
     }
  
