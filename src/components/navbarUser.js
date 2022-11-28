@@ -50,13 +50,18 @@ function Navbar() {
     history.push('/home')
   }
 
+  function Welcome(props) {
+    return <h2 id='h2Text'>Bem-vindo, {props.name}</h2>;
+  }
+
   return (
     <>
     {logado? (
       <><nav className='navbar'>
       <div className='navbar-container'>
         
-      <h2 id='h2Text'>Bem-vindo</h2>
+      <Welcome name={JSON.parse(localStorage.getItem('client'))[0].nome} />
+      
        
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>

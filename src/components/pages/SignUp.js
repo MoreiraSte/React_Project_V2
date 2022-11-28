@@ -11,6 +11,7 @@ export default function SignUp() {
   
   const [email,setEmail]= useState("");
   const [senha,setSenha] = useState("");
+  const [operacao,setOperacao] = useState();
   const history = useHistory();
   
   useEffect(() => {
@@ -21,16 +22,23 @@ export default function SignUp() {
   
   async function loginSign (){  
 
+      const data = {
+        email:email,
+        senha:senha,
+        operacao:operacao
+      }
+
       let result = await fetch("http://localhost:8000/setup_bank/client/",{
         method: "GET",
-        // body:JSON.stringify({ username: nome, password: senha }),
-        // headers: { 'Content-Type': 'application/json' }
+        body: data,
+        
         
       }).then(res => res.json()).then(data => {
         console.log(data)
-        // console.log(data.detail)
+        
         if (localStorage.getItem("client") ==  undefined){
-          localStorage.setItem("client",'')
+          setOperacao(data)
+          // localStorage.setItem("client",JSON.stringify(data))
           console.log(data)
           Notify.success('Usuário logado');
           history.push("/cadastroBanco")
@@ -39,22 +47,12 @@ export default function SignUp() {
         else{
           history.push('/sign-up')
           Notify.failure("Dados errados")
-         
-          
+
         }
 
       });
       console.log(result)
-      // if (nome !== localStorage.getItem("token") || senha !== localStorage.getItem("token")){
-      //   history.push('/sign-up')
-      //   Notify.failure("Dados errados")
-      // }
-      // if (nome == localStorage.getItem("token") || senha == localStorage.getItem("token")){
-      // result = await result.json();
-      // localStorage.setItem("token", result.access)
-      // Notify.success('Usuário logado');
-      // history.push("/cadastroBanco")
-      // }
+      
     }
 
 

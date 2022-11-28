@@ -36,15 +36,6 @@ export default function cadastroBanco() {
         
       };
 
-    //   let result = fetch("http://localhost:8000/setup_bank/conta/",{
-    //     method: "GET",
-    // }).then(res=>res.json()).then(data => {
-    //   console.log(data)
-    // })
-     
-
-      
-  
       let USER_URL = "http://localhost:8000/setup_bank/conta/";
   
       axios({

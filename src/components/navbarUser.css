@@ -10,7 +10,7 @@
   }
   #h2Text{
     color: #fff;
-    
+    font-size: 20px;
 
   }
   .navbar-container {
@@ -109,6 +109,10 @@
     }
   .btn{
     display: none;
+  }
+  #h2Text{
+    margin-right: 130px;
+    font-size: 20px;
   }
   }
   
