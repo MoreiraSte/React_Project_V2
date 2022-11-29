@@ -4,13 +4,14 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import axios from "axios";
 
 export default function SignUp() {
 
   
   const [email,setEmail]= useState("");
   const [senha,setSenha] = useState("");
+  const [nome,setNome] = useState("");
   const [operacao,setOperacao] = useState();
   const history = useHistory();
   
@@ -22,36 +23,69 @@ export default function SignUp() {
   
   async function loginSign (){  
 
+   
       const data = {
         email:email,
         senha:senha,
-        operacao:operacao
+        nome:nome,
+        operacao:'logar'
       }
 
-      let result = await fetch("http://localhost:8000/setup_bank/client/",{
-        method: "GET",
-        body: data,
-        
-        
-      }).then(res => res.json()).then(data => {
-        console.log(data)
-        
-        if (localStorage.getItem("client") ==  undefined){
-          setOperacao(data)
-          // localStorage.setItem("client",JSON.stringify(data))
-          console.log(data)
-          Notify.success('Usuário logado');
-          history.push("/cadastroBanco")
+
+      axios.post("http://localhost:8000/setup_bank/client/", data)
+      .then((res) => {
+
+        if (res.status === 200) {
+          
+          if (localStorage.getItem("client") ==  undefined){
             
-        }
-        else{
-          history.push('/sign-up')
+            localStorage.setItem("client",JSON.stringify(res.data))
+            Notify.success('Usuário logado');
+            history.push("/cadastroBanco")
+          }
+        } 
+        // else{
+        //   Notify.failure("Dados errados")
+        // }
+        
+      }).catch(res => {
+          
+        if(res.response.status === 500){
+          
           Notify.failure("Dados errados")
 
         }
+      })
+      // let result = await fetch(,{
+      //   method: "POST",
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //     // 'Content-Type': 'application/x-www-form-urlencoded',
+      //   },
+      //   body: JSON.stringify(data)
+        
+        
+        
+      // }).then(res => res.json()).then(data => {
+      //   console.log("data")
+       
 
-      });
-      console.log(result)
+      //   if (localStorage.getItem("client") ==  undefined){
+          
+      //     localStorage.setItem("client",JSON.stringify(data))
+      //     console.log(data)
+      //     Notify.success('Usuário logado');
+      //     history.push("/cadastroBanco")
+            
+      //   }
+      //   else{
+      //     history.push('/sign-up')
+      //     Notify.failure("Dados errados")
+
+      //   }
+
+      // });
+      // console.log(result)
       
     }
 

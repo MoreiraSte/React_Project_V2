@@ -50,9 +50,9 @@ function Navbar() {
     history.push('/home')
   }
 
-  function Welcome(props) {
-    return <h2 id='h2Text'>Bem-vindo, {props.name}</h2>;
-  }
+  // function Welcome(props) {
+  //   return <h2 id='h2Text'>Bem-vindo, {props.name}</h2>;
+  // }
 
   return (
     <>
@@ -60,8 +60,8 @@ function Navbar() {
       <><nav className='navbar'>
       <div className='navbar-container'>
         
-      <Welcome name={JSON.parse(localStorage.getItem('client'))[0].nome} />
-      
+      {/* <Welcome name={JSON.parse(localStorage.getItem('client'))[0].nome} /> */}
+      <h2 id='h2Text'>Bem-vindo</h2>
        
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
