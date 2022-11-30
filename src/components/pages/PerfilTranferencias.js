@@ -25,8 +25,8 @@ export default function TransfPage() {
             tipo_transferencia:tipo,
             valor_transferencia: quantia,
             data_transferencia: dataT,
-            recebeu_transf: me,
-            enviou_transf: pessoa
+            recebeu_transf: pessoa,
+            enviou_transf: me
           
         };
   
@@ -52,7 +52,7 @@ export default function TransfPage() {
               history.push("/saldo");
               Notify.success('Saldo atualizado');
               Notify.info('Histórico de transferências atualizado');
-            }, 3000);
+            }, 1000);
           })
       }
 
