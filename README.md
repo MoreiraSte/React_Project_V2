@@ -1,6 +1,6 @@
-# Banco Digital 
+# Digital Bank
 
-Projeto em React integrado a uma API Django
+Project in React integrate on one Django API
 
-### Link da API hospedada na Azure: https://djangoapibank.azurewebsites.net/
+### Link of API in Azure: https://djangoapibank.azurewebsites.net/
 
